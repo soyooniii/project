@@ -34,7 +34,7 @@ resource "aws_instance" "my-project-worker-1" {
 resource "aws_instance" "my-project-worker-2" {
   ami                    = "ami-0e735aba742568824"
   instance_type          = "t2.medium"
-  subnet_id              = aws_subnet.my-project-public-subnet-2.id
+  subnet_id              = aws_subnet.my-project-public-subnet-1.id
   associate_public_ip_address = true
   key_name               = "${aws_key_pair.project-key.key_name}"
   vpc_security_group_ids = ["${aws_security_group.my-project-public-sg.id}"]
