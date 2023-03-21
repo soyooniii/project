@@ -73,10 +73,31 @@ resource "aws_security_group" "my-project-public-sg" {
   name_prefix = "my-project-public-sg"
   vpc_id      = aws_vpc.my-project-vpc.id
 
-  ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+ingress {
+    from_port   = 6443
+    to_port     = 6443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+}
+
+ingress {
+    from_port   = 30080
+    to_port     = 30080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+}
+
+ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+}
+
+ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
 }
 
